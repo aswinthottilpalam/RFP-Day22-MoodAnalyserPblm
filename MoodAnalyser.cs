@@ -27,12 +27,14 @@ namespace MoodAnalyserPgm
         public string AnalyseMood()
         {
             string mood;
-            if (message == "I am in a Happy mood")
+            try
+            {
+                mood = this.message.Contains("Sad") || this.message.Contains("sad") ? "Sad" : "Happy";
+            }
+            catch
+            {
                 mood = "Happy";
-            else if (message == "I am in a Sad mood")
-                mood = "Sad";
-            else
-                mood = null;
+            }
             return mood;
         }
     }
